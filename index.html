@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+	<title>JQM Calculator</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<link href="content/jquery.mobile-1.1.0.min.css" rel="stylesheet" type="text/css" />
+	<script src="scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
+	<script src="scripts/jquery.mobile-1.1.0.min.js" type="text/javascript"></script>
+</head>
+<body>
+	<div id="calculator" data-role="page" data-theme="a" data-rockncoder-jspage="calculator">
+		<header data-role="header">
+			<h1>JQM Calculator</h1>
+		</header>
+		<section data-role="content" >
+			<input type="text"  id="displayControl" style="text-align: right;" value="0" />
+			<div class="ui-grid-a">
+				<div class="ui-block-a"><button data-theme="b" id="keyC" data-rockncoder-tag="C">C</button></div>
+				<div class="ui-block-b"><button data-theme="b" id="keyCe" data-rockncoder-tag="CE" >CE</button></div>
+			</div>
+			<div class="ui-grid-c">
+				<div class="ui-block-a"><button data-theme="b" id="key7" data-rockncoder-tag="7">7</button></div>
+				<div class="ui-block-b"><button data-theme="b" id="key8" data-rockncoder-tag="8" >8</button></div>
+				<div class="ui-block-c"><button data-theme="b" id="key9" data-rockncoder-tag="9" >9</button></div>
+				<div class="ui-block-d"><button data-theme="e" id="keyDivide" >/</button></div>
+				<div class="ui-block-a"><button data-theme="b" id="key4" data-rockncoder-tag="4" >4</button></div>
+				<div class="ui-block-b"><button data-theme="b" id="key5" data-rockncoder-tag="5" >5</button></div>
+				<div class="ui-block-c"><button data-theme="b" id="key6" data-rockncoder-tag="6" >6</button></div>
+				<div class="ui-block-d"><button data-theme="e" id="keyMultiply" >*</button></div>
+				<div class="ui-block-a"><button data-theme="b" id="key1" data-rockncoder-tag="1" >1</button></div>
+				<div class="ui-block-b"><button data-theme="b" id="key2" data-rockncoder-tag="2" >2</button></div>
+				<div class="ui-block-c"><button data-theme="b" id="key3" data-rockncoder-tag="3" >3</button></div>
+				<div class="ui-block-d"><button data-theme="e" id="keySubtract" >-</button></div>
+				<div class="ui-block-a"><button data-theme="e" id="keyDecimalPoint" data-rockncoder-tag=".">.</button></div>
+				<div class="ui-block-b"><button data-theme="b" id="key0" data-rockncoder-tag="0" >0</button></div>
+				<div class="ui-block-c"><button data-theme="e" id="keyEquals" >=</button></div>
+				<div class="ui-block-d"><button data-theme="e" id="keyAdd" >+</button></div>
+			</div>
+		</section>
+	</div>
+	<script src="scripts/hideAddressBar.js" type="text/javascript"></script>
+	<script src="scripts/app.js" type="text/javascript"></script>
+</body>
+</html>
