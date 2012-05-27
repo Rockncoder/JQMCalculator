@@ -1,4 +1,8 @@
-﻿
+﻿/*
+** jQuery Mobile Calculator
+**
+ */
+
 var RocknCoder = RocknCoder || {};
 RocknCoder.Pages = RocknCoder.Pages || {};
 
