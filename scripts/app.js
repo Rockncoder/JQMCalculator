@@ -23,16 +23,19 @@ RocknCoder.Pages.Kernel = function (event) {
 RocknCoder.Events = function () {
 	$("div[data-rockncoder-jspage]").on(
 		'pagebeforecreate pagecreate pagebeforeload pagebeforeshow pageshow pagebeforechange pagechange pagebeforehide pagehide pageinit',
-		RocknCoder.Pages.Kernel);
+		RocknCoder.Pages.Kernel).on(
+		"pageinit", RocknCoder.hideAddressBar);
 }();
 
 // this is the handler for all page events
 RocknCoder.Pages.calculator = function(){
 	var pageshow = function () {
 		RocknCoder.Display.init($("#displayControl")[0]);
-		$("button").click(function(event){
+		$("button").tap(function(event){
 			var key = $(this).attr("data-rockncoder-tag"),
 				id = this.id;
+			event.preventDefault();
+
 			switch(id){
 				case "key0":
 				case "key1":
@@ -69,6 +72,7 @@ RocknCoder.Pages.calculator = function(){
 					RocknCoder.Display.setOperator("=");
 					break;
 			}
+			return false;
 		});
 	},
 	pagehide = function () {
@@ -150,12 +154,20 @@ RocknCoder.Display = function() {
 			}
 		},
 		// handles a numeric or decimal point key being entered
-		enterDigit = function(button) {
-			if (operatorSet == true || $displayControl.value === "0") {
-				setValue("");
-				operatorSet = false;
+		enterDigit = function(buttonValue) {
+			var currentlyDisplayed = $displayControl.value;
+			// keep the max digits to a reasonable number
+			if(currentlyDisplayed.length < 20){
+				if (operatorSet == true || currentlyDisplayed === "0") {
+					setValue("");
+					operatorSet = false;
+				}
+				// already pressed a decimal point
+				if(buttonValue === "." && currentlyDisplayed.indexOf(".")>= 0){
+					return;
+				}
+				setValue($displayControl.value + buttonValue);
 			}
-			setValue($displayControl.value + button);
 		},
 		setOperator = function(newOperator) {
 			if (newOperator === "=") {
